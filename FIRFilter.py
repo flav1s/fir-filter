@@ -91,5 +91,5 @@ class FIRFilter:
         plt.xlabel("Frequencia[Hz]")
         plt.ylabel("Magnitude")
         plt.title("Sinal Filtrado: Espectro")
-        plt.show()
+        plt.show(False)
         return self.S
