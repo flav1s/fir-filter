@@ -44,6 +44,16 @@ class Signal:
         plt.ylabel('Magnitude')
         plt.title("Sinal: Espectro")
 
+    def ifft(self, iY):
+        self.iy = np.fft.ifft(iY)
+        plt.figure()
+        plt.plot(self.x, np.abs(self.iy))
+        plt.title("Sinal Filtrado")
+        plt.xlabel('Tempo [s]')
+        plt.ylabel('Amplitude')
+        plt.grid()
+
+
 #-----------------------------------#
 #               Main                #
 #-----------------------------------#
@@ -52,4 +62,6 @@ signal.plot()
 signal.fft()
 filter = ff.FIRFilter(500.0, 800.0, 0.1, 100.0, 40.0, signal.fs) # low_border, high_border, ripple, transition_band, band_pass_attenuation, fs
 filter.fft(len(signal.Y))
-filter.apply_filter_frequency(signal.Y)
+S = filter.apply_filter_frequency(signal.Y)
+signal.ifft(S)
+plt.show()
