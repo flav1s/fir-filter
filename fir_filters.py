@@ -64,4 +64,8 @@ filter = ff.FIRFilter(500.0, 800.0, 0.1, 100.0, 40.0, signal.fs) # low_border, h
 filter.fft(len(signal.Y))
 S = filter.apply_filter_frequency(signal.Y)
 signal.ifft(S)
+<<<<<<< HEAD
 plt.show()
+=======
+plt.show()
+>>>>>>> d6173e8ad498b35c2846c91aa3cd4b796ec69948
